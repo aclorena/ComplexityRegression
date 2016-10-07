@@ -1,6 +1,6 @@
 ###################################################################
 #   Complexity masures for regression problemas                   #
-#   Propose by Ana Carolina Lorena and Ivan Costa                 #
+#   Proposed by Ana Carolina Lorena and Ivan G. Costa             #
 #   Implemented by Aron Ifanger Maciel                            #
 ###################################################################
 
