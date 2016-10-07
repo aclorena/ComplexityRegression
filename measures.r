@@ -34,12 +34,12 @@ library(FNN)
 
 ###################################################################
 #   First group of functions                                      #
-#   These functions are used in measures evaluation               #
+#   These are auxiliary functions                                 #
 ###################################################################
 
 #-----------------------------------------------------------------#
 #   01 - Normalize                                                #
-#       Normalize the columns                                     #
+#       Normalize the columns of a dataset (within [0,1])         #
 #-----------------------------------------------------------------#
 
 Normalize = function(dataset) {
@@ -128,7 +128,7 @@ ExamplesRemovedNumber = function(x,y,minCorrelation)
 
 ###################################################################
 #   Second group of functions                                     #
-#   Measures evaluation                                           #
+#   Complexity Measures                                           #
 ###################################################################
 
 #-----------------------------------------------------------------#
@@ -136,7 +136,7 @@ ExamplesRemovedNumber = function(x,y,minCorrelation)
 #       First one has to calculate the absolute value of the Spe  #
 #       arman correlation between each feature and the outputs.   #
 #       The absolute value is taken because both extremes of the  #
-#       correlation measure, which range between [􀀀1; 1], repre   #
+#       correlation measure, which range between [-1; 1], repre   #
 #       sent a strong correlation, either inverse or direct. C1   #
 #       is given by the maximum correlation value obtained among  #
 #       all the features.                                         #
