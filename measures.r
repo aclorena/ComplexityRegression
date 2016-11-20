@@ -160,7 +160,6 @@ ExamplesRemovedNumber = function(x,y,minCorrelation)
 #       is given by the maximum correlation value obtained among  #
 #       all the features.                                         #
 #-----------------------------------------------------------------#
-
 C1 = function(dataset, output = NULL) {   
   
   formatedDataset = FormatDataset(dataset, output)
@@ -227,7 +226,7 @@ C3 = function(dataset, output = NULL, minCorrelation = 0.9)
     correlations = array(1,numberColumn)
     
     for (column in 1:numberColumn)
-        correlations[column] = ExamplesRemovedNumber_Efficient_new(output, input[,column], minCorrelation)
+        correlations[column] = ExamplesRemovedNumber(output, input[,column], minCorrelation)
     
     naRemove = !is.na(correlations)
     
@@ -261,7 +260,7 @@ C4 = function(dataset, output = NULL, minResidual = 0.1){
     while(!stop){
         
         correlations = cor(output,input,
-                             method="spearman");
+                             method="spearman")
         indexMostCorrelated = MaxPosition(abs(correlations))
         if(!is.na(indexMostCorrelated)){
             
@@ -274,7 +273,7 @@ C4 = function(dataset, output = NULL, minResidual = 0.1){
                 stop = TRUE
         }
     }
-        if(length(output) == 1)
+    if(length(output) == 1)
        0
     else
        length(output)/numberRows
@@ -350,7 +349,7 @@ S1 = function(dataset, output = NULL){
 }
 
 #-----------------------------------------------------------------#
-#   12 - S2 Input Distribution                                    #
+#   14 - S2 Input Distribution                                    #
 #       S2 first orders the data points according to their output #
 #       values yi and then estimates the distance between pairs of# 
 #       examples that are neighbors in the obtained ordering. S2  #
@@ -388,7 +387,7 @@ S2  = function(dataset, output = NULL){
 }
 
 #-----------------------------------------------------------------#
-#   13 - S3 Error of a Nearest Neighbor regressor                 #
+#   15 - S3 Error of a Nearest Neighbor regressor                 #
 #       S3 calculates the mean squared error of a nearest neighbor#
 #       regressor, using leave-one-out. It measures how the       #
 #       examples are close together and high values imply that    #
@@ -412,7 +411,7 @@ S3  = function(dataset, output = NULL){
 }
 
 #-----------------------------------------------------------------#
-#   14 - L3 Non-linearity of a Linear regressor                   #
+#   16 - L3 Non-linearity of a Linear regressor                   #
 #       L3 selects pairs of examples with close outputs (with low #
 #       |yi − yj|) and creates a new random test point by randomly#
 #       interpolating them. It is based on the Non-linearity of a #
@@ -461,7 +460,7 @@ L3 = function(dataset, output = NULL){
 }
 
 #-----------------------------------------------------------------#
-#   15 - S4 Non-linearity of Nearest Neighbor regressor           #
+#   17 - S4 Non-linearity of Nearest Neighbor regressor           #
 #       Employs the same procedure as before, but using a nearest #
 #       neighbor regressor instead in the output predictions.     #
 #-----------------------------------------------------------------#
@@ -475,7 +474,6 @@ S4 = function(dataset, output = NULL){
     numberColumn = sum(naRemove)
 
     order = order(output)
-    #input = input[order,]    
     output = output[order,] 
     numberColumns = formatedDataset$numberColumn
     randomUniform = runif(numberRows - 1)
@@ -499,7 +497,7 @@ S4 = function(dataset, output = NULL){
 }
 
 #-----------------------------------------------------------------#
-#   16 - T2 Average Number of Examples per dimension              #
+#   18 - T2 Average Number of Examples per dimension              #
 #       T2 is the logarithm of the average number of examples per #
 #       dimension. It gives an indicative on data sparsity.       #
 #-----------------------------------------------------------------#
