@@ -503,5 +503,5 @@ S4 = function(dataset, output = NULL){
 #-----------------------------------------------------------------#
 T2 = function(dataset, output = NULL){
     formatedDataset = FormatDataset(dataset, output)
-    log10(formatedDataset$numberRows / formatedDataset$numberColumn)
+    (formatedDataset$numberRows / formatedDataset$numberColumn)
 }
